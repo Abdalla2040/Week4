@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Information</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="Divtemplate" type="x-template">
+      <div class="container">
+        <h1>{{ pageTitle }}</h1>
+        <h2>{{ sectionTitle }}</h2>
+        <div v-html="profilePhoto" class="profilePhoto"></div>
+        <!-- <p>First Name: {{ firstName }}</p>
+        <p>Last Name: {{ lastName }}</p>
+        <p>Full Name: {{ fullName() }}</p>
+        <p>TechID: {{ techID }}</p>
+        <p>Major: {{ major }}</p>
+        <p>Expected Graduation Year: {{ graduationYear }}</p> -->
+        <div v-for="singleStudent in student" :key="singleStudent.id">
+          <p>First Name: {{ singleStudent.firstName }}</p>
+          <p>Last Name: {{ singleStudent.lastName }}</p>
+          <p v-show="fullName().includes(singleStudent.lastName)">
+            Full Name: {{ fullName() }}
+          </p>
+          <p>TechID: {{ techID }}</p>
+          <p>Major: {{ singleStudent.major }}</p>
+          <p>Expected Graduation Year: {{ singleStudent.graduationYear }}</p>
+          <p v-bind:class="setGPAColor">GPA: {{ singleStudent.gpa }}</p>
+        </div>
+
+        <button type="button" id="setTechID">Show TechID</button>
+      </div>
+    </template>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="vue.js"></script>
+  </body>
+</html>
