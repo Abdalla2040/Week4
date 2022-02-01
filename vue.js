@@ -4,19 +4,19 @@ var app = new Vue({
     pageTitle: "New Student Information",
     sectionTitle: "Student Personal Record",
     profilePhoto: "<img src='pic3.jpg' alt='profile-photo'>",
-    firstName: "Abdullahi",
-    lastName: "Mohamed",
+    firstName: "",
+    lastName: "",
     techID: null,
-    major: "Computer Programming",
+    major: "",
     graduationYear: "2022",
-    gpa: 3.5,
+    gpa: null,
     gpaColor: null,
     student: [
       {
         id: 1,
         firstName: "Abdullahi",
         lastName: "Mohamed",
-        major: "computer Programming",
+        major: "Computer Programming",
         graduationYear: "2022",
         gpa: 2.5,
       },
@@ -58,6 +58,14 @@ var app = new Vue({
 
 const techID = document.getElementById("setTechID");
 techID.onclick = () => {
-  if (!app.$data.techID) app.$data.techID = "1254560";
-  else app.$data.techID = "not working";
+  if (!app.$data.techID) {
+    if(app.$data.student['firstName'] == "Abdullahi")
+      app.$data.techID = "1254560";
+    else if(app.$data.student.firstName == "John")
+      app.$data.techID = "2541567";
+    else
+      app.$data.techID = "5879564";
+  }
+    
+  
 };
