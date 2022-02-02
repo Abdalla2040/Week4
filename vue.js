@@ -4,43 +4,52 @@ var app = new Vue({
     pageTitle: "New Student Information",
     sectionTitle: "Student Personal Record",
     profilePhoto: "<img src='pic3.jpg' alt='profile-photo'>",
-    firstName: "Abdullahi",
-    lastName: "Mohamed",
+    firstName: null,
+    lastName: null,
     techID: null,
-    major: "Computer Programming",
-    graduationYear: "2022",
-    gpa: 3.5,
+    major: null,
+    graduationYear: null,
+    gpa: null,
     gpaColor: null,
     student: [
       {
-        id: 1,
         firstName: "Abdullahi",
         lastName: "Mohamed",
-        major: "computer Programming",
+        major: {
+          id: 1,
+          name: "Computer Programming",
+          totalCredits: 50,
+        },
         graduationYear: "2022",
         gpa: 2.5,
       },
       {
-        id: 2,
         firstName: "John",
         lastName: "Smith",
-        major: "Cyber Security",
+        major: {
+          id: 2,
+          name: "Cyber Security",
+          totalCredits: 38,
+        },
         graduationYear: "2023",
         gpa: 3.7,
       },
       {
-        id: 3,
         firstName: "Alex",
         lastName: "Luther",
-        major: "Computer Science",
+        major: {
+          id: 3,
+          name: "Computer Science",
+          totalCredits: 55,
+        },
         graduationYear: "2022",
         gpa: 4.0,
       },
     ],
   },
   methods: {
-    fullName: function () {
-      return this.lastName + ", " + this.firstName;
+    fullName: function (lastName, firstName) {
+      return lastName + ", " + firstName;
     },
   },
   computed: {
@@ -59,5 +68,5 @@ var app = new Vue({
 const techID = document.getElementById("setTechID");
 techID.onclick = () => {
   if (!app.$data.techID) app.$data.techID = "1254560";
-  else app.$data.techID = "not working";
+  else app.$data.techID = null;
 };

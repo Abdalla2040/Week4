@@ -20,17 +20,46 @@
         <p>TechID: {{ techID }}</p>
         <p>Major: {{ major }}</p>
         <p>Expected Graduation Year: {{ graduationYear }}</p> -->
-        <div v-for="singleStudent in student" :key="singleStudent.id">
+        <div
+          v-for="(singleStudent, index) in student"
+          :key="singleStudent.firstName"
+        >
           <p>First Name: {{ singleStudent.firstName }}</p>
           <p>Last Name: {{ singleStudent.lastName }}</p>
-          <p v-show="fullName().includes(singleStudent.lastName)">
+          <!-- <p v-show="fullName().includes(singleStudent.lastName)">
             Full Name: {{ fullName() }}
+          </p> -->
+          <p>
+            Full Name: {{ fullName(singleStudent.lastName,
+            singleStudent.firstName) }}
           </p>
-          <p>TechID: {{ techID }}</p>
-          <p>Major: {{ singleStudent.major }}</p>
-          <p>Expected Graduation Year: {{ singleStudent.graduationYear }}</p>
-          <p v-bind:class="setGPAColor">GPA: {{ singleStudent.gpa }}</p>
+          <p v-show="singleStudent.firstName == 'Abdullahi'">
+            TechID: {{ techID }}
+          </p>
+          <p v-for="(index, key, value) in student.major">
+            Major: {{index}}, {{key}}, {{value}}
+          </p>
+          <p v-show="singleStudent.graduationYear == 2023">
+            Expected Graduation Year: {{ singleStudent.graduationYear }}
+          </p>
+          <p v-bind:class="setGPAColor" v-if="singleStudent.gpa >= 3">
+            GPA: A - {{ singleStudent.gpa }}
+          </p>
+          <p v-bind:class="setGPAColor" v-else-if="singleStudent.gpa >= 2">
+            GPA: B - {{ singleStudent.gpa }}
+          </p>
+          <p v-bind:class="setGPAColor" v-else-if="singleStudent.gpa >= 1">
+            GPA: C - {{ singleStudent.gpa }}
+          </p>
+          <p v-bind:class="setGPAColor" v-else-if="singleStudent.gpa >= 0">
+            GPA: D - {{ singleStudent.gpa }}
+          </p>
+          <p v-bind:class="setGPAColor" v-else>
+            GPA: F - {{ singleStudent.gpa }}
+          </p>
+          <div v-if="index < student.length-1"><hr /></div>
         </div>
+        <!-- <div v-if="!student.length"><hr /></div> -->
 
         <button type="button" id="setTechID">Show TechID</button>
       </div>
