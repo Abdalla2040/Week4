@@ -54,9 +54,9 @@ var app = new Vue({
   },
   computed: {
     setGPAColor: function () {
-      if (this.gpa >= 0 && this.gpa <= 1.0) this.gpaColor = "red";
-      else if (this.gpa >= 1.1 && this.gpa <= 2.0) this.gpaColor = "orange";
-      else if (this.gpa >= 2.1 && this.gpa <= 3.0) this.gpaColor = "yellow";
+      if (this.student['gpa'] >= 0 && this.student['gpa'] <= 1.0) this.gpaColor = "red";
+      else if (this.student['gpa'] >= 1.1 && this.student['gpa'] <= 2.0) this.gpaColor = "orange";
+      else if (this.student['gpa'] >= 2.1 && this.student['gpa'] <= 3.0) this.gpaColor = "yellow";
       else this.gpaColor = "green";
 
       return this.gpaColor;

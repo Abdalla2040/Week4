@@ -43,3 +43,9 @@ body {
   border-radius: 0.5rem;
   border: none;
 }
+.major span{
+  margin-left: 2rem;
+  display: block;
+}
+
+
