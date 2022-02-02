@@ -36,8 +36,11 @@
           <p v-show="singleStudent.firstName == 'Abdullahi'">
             TechID: {{ techID }}
           </p>
-          <p v-for="(index, key, value) in student.major">
-            Major: {{index}}, {{key}}, {{value}}
+          <p class="major">
+            Major: <br>
+            <span> Id: {{singleStudent.major.id}}</span> 
+            <span>Name: {{singleStudent.major.name}}</span> 
+            <span>Total Credits: {{singleStudent.major.totalCredits}}</span> 
           </p>
           <p v-show="singleStudent.graduationYear == 2023">
             Expected Graduation Year: {{ singleStudent.graduationYear }}
